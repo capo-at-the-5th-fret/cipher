@@ -40,6 +40,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install CMake And Ninja
+        uses: lukka/get-cmake@latest
+        with:
+          cmakeVersion: "~3.28.0"
+
       - name: Ccache
         if: matrix.config.ccache_variant
         uses: hendrikmuhs/ccache-action@v1.2
