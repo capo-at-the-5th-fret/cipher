@@ -68,7 +68,7 @@ namespace cipher
         }
     };
 
-    export std::string caesar(std::string_view s, int n)
+    export [[nodiscard]] std::string caesar(std::string_view s, int n)
     {
         std::string ret{ s };
         std::ranges::transform(ret, ret.begin(), rotate_letter{ n });
@@ -81,7 +81,7 @@ namespace cipher
         std::ranges::transform(r, std::ranges::begin(r), rotate_letter{ n });
     }
 
-    export std::string rot13(std::string_view s)
+    export [[nodiscard]] std::string rot13(std::string_view s)
     {
         std::string ret{ s };
         std::ranges::transform(ret, ret.begin(), rotate_letter{ 13 });
@@ -94,7 +94,7 @@ namespace cipher
         std::ranges::transform(r, std::ranges::begin(r), rotate_letter{ 13 });
     }
 
-    export std::string affine(std::string_view s, int a, int b)
+    export [[nodiscard]] std::string affine(std::string_view s, int a, int b)
     {
         std::string ret{ s };
         std::ranges::transform(ret, ret.begin(), affine_letter{ a, b });
@@ -107,7 +107,7 @@ namespace cipher
         std::ranges::transform(r, std::ranges::begin(r), affine_letter{ a, b });
     }
 
-    export std::string atbash(std::string_view s)
+    export [[nodiscard]] std::string atbash(std::string_view s)
     {
         std::string ret{ s };
         std::ranges::transform(ret, ret.begin(), reverse_letter{});
