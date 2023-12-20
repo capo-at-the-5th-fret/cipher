@@ -84,7 +84,7 @@ jobs:
   
       - name: Test
         working-directory: ${{ steps.strings.outputs.build-output-dir }}
-        run: ctest -C ${{env.BUILD_TYPE}}
+        run: ctest -C ${{env.BUILD_TYPE}} --no-tests=error
 
     #   - name: Benchmark
     #     working-directory: ${{github.workspace}}/build
